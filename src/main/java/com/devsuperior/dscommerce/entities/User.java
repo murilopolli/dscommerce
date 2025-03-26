@@ -29,7 +29,7 @@ public class User {
 
 	private String phone;
 
-	@Column(name = "brth_date")
+	@Column(name = "birth_date")
 	private LocalDate birthDate;
 
 	private String password;
