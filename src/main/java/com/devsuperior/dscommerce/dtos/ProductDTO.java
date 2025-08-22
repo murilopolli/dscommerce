@@ -1,6 +1,9 @@
 package com.devsuperior.dscommerce.dtos;
 
+import java.util.ArrayList;
+import java.util.List;
 
+import com.devsuperior.dscommerce.entities.Category;
 import com.devsuperior.dscommerce.entities.Product;
 
 import jakarta.validation.constraints.NotBlank;
@@ -10,18 +13,20 @@ import jakarta.validation.constraints.Size;
 public class ProductDTO {
 
 	private Long id;
-	
+
 	@NotBlank(message = "Campo requerido")
 	@Size(min = 3, max = 80, message = "Nome deve ter de 3 a 80 caracteres")
 	private String name;
-	
+
 	@NotBlank(message = "Campo requerido")
 	@Size(min = 10, message = "Descrição deve ter noo míniom 10 caracteres")
 	private String description;
-	
+
 	@Positive(message = "O preço de ser positivo")
 	private Double price;
 	private String imgUrl;
+
+	private List<CategoryDTO> categories = new ArrayList<>();
 
 	public ProductDTO() {
 
@@ -34,13 +39,16 @@ public class ProductDTO {
 		this.price = price;
 		this.imgUrl = imgUrl;
 	}
-	
+
 	public ProductDTO(Product entity) {
 		id = entity.getId();
 		name = entity.getName();
 		description = entity.getDescription();
 		price = entity.getPrice();
 		imgUrl = entity.getImgUrl();
+		for (Category cat : entity.getCategories()) {
+			categories.add(new CategoryDTO(cat));
+		}
 	}
 
 	public Long getId() {
@@ -61,6 +69,10 @@ public class ProductDTO {
 
 	public String getImgUrl() {
 		return imgUrl;
+	}
+
+	public List<CategoryDTO> getCategories() {
+		return categories;
 	}
 
 }
