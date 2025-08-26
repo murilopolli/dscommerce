@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dscommerce.dtos.CategoryDTO;
 import com.devsuperior.dscommerce.dtos.ProductDTO;
+import com.devsuperior.dscommerce.dtos.ProductMinDTO;
 import com.devsuperior.dscommerce.entities.Category;
 import com.devsuperior.dscommerce.entities.Product;
 import com.devsuperior.dscommerce.repositories.CategoryRepository;
@@ -43,9 +44,9 @@ public class ProductService {
 	}
 	
 	@Transactional(readOnly = true)
-	public Page<ProductDTO> findAll(String name, Pageable pageable) {
+	public Page<ProductMinDTO> findAll(String name, Pageable pageable) {
 		Page<Product> products = productRepository.searchByName(name, pageable);
-		return products.map(x -> new ProductDTO(x));		
+		return products.map(x -> new ProductMinDTO(x));		
 	}
 	
 	@Transactional
