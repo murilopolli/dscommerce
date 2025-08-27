@@ -1,5 +1,6 @@
 package com.devsuperior.dscommerce.entities;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.Objects;
 
@@ -15,9 +16,13 @@ public class OrderItem {
 	private OrderItemPK id = new OrderItemPK();
 
 	private Integer quantity;
-	private BigInteger price;
+	private BigDecimal price;
 
-	public OrderItem(Order order, Product product, Integer quantity, BigInteger price) {
+	public OrderItem() {
+		
+	}
+	
+	public OrderItem(Order order, Product product, Integer quantity, BigDecimal price) {
 		this.id.setOrder(order);
 		this.id.setProduct(product);
 		this.quantity = quantity;
@@ -48,11 +53,11 @@ public class OrderItem {
 		this.quantity = quantity;
 	}
 
-	public BigInteger getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigInteger price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 
