@@ -1,27 +1,21 @@
 package com.devsuperior.dscommerce.dtos;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
-import com.devsuperior.dscommerce.entities.Category;
 import com.devsuperior.dscommerce.entities.Product;
-
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
 
 public class ProductMinDTO {
 
 	private Long id;
 	private String name;
-	private Double price;
+	private BigDecimal price;
 	private String imgUrl;
 
 	public ProductMinDTO() {
 
 	}
 
-	public ProductMinDTO(Long id, String name, Double price, String imgUrl) {
+	public ProductMinDTO(Long id, String name, BigDecimal price, String imgUrl) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -44,7 +38,7 @@ public class ProductMinDTO {
 	}
 
 	
-	public Double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 

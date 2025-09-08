@@ -1,5 +1,6 @@
 package com.devsuperior.dscommerce.entities;
 
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -25,7 +26,7 @@ public class Product {
 	private String name;
 	@Column(columnDefinition = "TEXT")
 	private String description;
-	private Double price;
+	private BigDecimal price;
 	private String imgUrl;
 
 	@ManyToMany
@@ -36,7 +37,7 @@ public class Product {
 
 	}
 
-	public Product(Long id, String name, String description, Double price, String imgUrl) {
+	public Product(Long id, String name, String description, BigDecimal price, String imgUrl) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -69,11 +70,11 @@ public class Product {
 		this.description = description;
 	}
 
-	public Double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 

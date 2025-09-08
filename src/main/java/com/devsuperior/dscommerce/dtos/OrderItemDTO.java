@@ -11,6 +11,9 @@ public class OrderItemDTO {
 	private BigDecimal price;
 	private Integer quantity;
 	
+	public OrderItemDTO() {
+		
+	}
 	public OrderItemDTO(Long productId, String name, BigDecimal price, Integer quantity) {
 		this.productId = productId;
 		this.name = name;

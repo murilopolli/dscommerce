@@ -1,5 +1,6 @@
 package com.devsuperior.dscommerce.dtos;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class ProductDTO {
 	private String description;
 
 	@Positive(message = "O preço de ser positivo")
-	private Double price;
+	private BigDecimal price;
 	private String imgUrl;
 
 	@NotEmpty(message = "Deve ter ao menos uma categoria")
@@ -34,7 +35,7 @@ public class ProductDTO {
 		
 	}
 	
-	public ProductDTO(Long id, String name, String description, Double price, String imgUrl) {
+	public ProductDTO(Long id, String name, String description, BigDecimal price, String imgUrl) {
 		this.id = id;
 		this.name = name;
 		this.description = description;
@@ -65,7 +66,7 @@ public class ProductDTO {
 		return description;
 	}
 
-	public Double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 
